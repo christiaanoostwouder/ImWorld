@@ -75,7 +75,7 @@ public class Weapon : MonoBehaviour
         bullet.GetComponent<Rigidbody>().AddForce(shootingDirection * bulletVelocity, ForceMode.Impulse);
         // Destroy bullet.
         StartCoroutine(DestroyBulletAfterTime(bullet, bulletPrefabLifeTime));
-        weaponSound.Play();
+        
 
         // Check finnish shooting.
         if (allowReset)
