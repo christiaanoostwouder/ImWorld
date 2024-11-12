@@ -44,12 +44,10 @@ public class Weapon : MonoBehaviour
     {
         if(currentShootingMode == ShootingMode.Auto)
         {
-            // Hold down.
             isShooting = Input.GetKey(KeyCode.Mouse0);
         }
         else if(currentShootingMode == ShootingMode.Single || currentShootingMode == ShootingMode.Burst)
-        {
-            // Press once.
+        {           
             isShooting = Input.GetKeyDown(KeyCode.Mouse0);
         }
         if(readyToShoot && isShooting)
@@ -100,20 +98,17 @@ public class Weapon : MonoBehaviour
 
     public Vector3 CalculateDirectionAndSpread()
     {
-        // Raycast from middle of the screen.
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); // raycast
         RaycastHit hit;
 
         Vector3 targetPoint;
         if(Physics.Raycast(ray, out hit))
         {
-            // Hitting something.
-            targetPoint = hit.point;
+            targetPoint = hit.point; // hitting
         }
         else
         {
-            // Shooting in air.
-            targetPoint = ray.GetPoint(100);
+            targetPoint = ray.GetPoint(100); // shoot in air
         }
 
         Vector3 direction = targetPoint - bulletSpawn.position;

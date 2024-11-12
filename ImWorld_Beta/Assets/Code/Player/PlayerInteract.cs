@@ -22,10 +22,10 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         playerUI.UpdateText(string.Empty);
-        //Responsible for creating a ray in the center of the camera.
-        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        
+        Ray ray = new Ray(cam.transform.position, cam.transform.forward); // creates the ray in the middle of the camera
         Debug.DrawRay(ray.origin, ray.direction * distance);
-        RaycastHit hitInfo;//Collision info;
+        RaycastHit hitInfo;// Collision info
 
         if(Physics.Raycast(ray, out hitInfo, distance, mask))
         {
